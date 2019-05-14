@@ -7,3 +7,4 @@ dist
 *sandbox.config
 .DS_Store
 *.mid
+*.bak

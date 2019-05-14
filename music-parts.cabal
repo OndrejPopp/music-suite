@@ -25,7 +25,7 @@ library
     build-depends:      base                    >= 4 &&        < 5,
                         containers              >= 0.5.5.1  && < 1,
                         monadplus,
-                        aeson                   >= 0.7.0.6  && < 1,
+                        aeson                   >= 0.7.0.6  && < 2,
                         lens                    >= 4.11     && < 5,
                         semigroups              >= 0.13.0.1 && < 1,
                         data-default            >= 0.5.3    && < 1,
