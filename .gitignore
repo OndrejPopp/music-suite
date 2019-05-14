@@ -6,5 +6,6 @@ dist
 *.count
 *.tex
 *.texi
+*.bak
 .shelly
 *sandbox.config
