@@ -34,7 +34,6 @@ resolver: lts-13.21
 #  - wai
 packages:
 - .
-- ../music-suite-all/music-score
 - ../music-suite-all/music-parts
 - ../music-suite-all/music-dynamics
 - ../music-suite-all/music-articulation

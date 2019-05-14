@@ -24,39 +24,145 @@ source-repository head
 
 library
     build-depends:      base                    >= 4        && < 5,
-                        lens                    >= 4.11     && < 5,
-                        split                   >= 0.2.2    && < 1,
-                        containers,
-                        comonad                 >= 4.2.2 && < 6,
-                        vector-space            >= 0.10.2   && < 1,
-                        vector-space-points     >= 0.2      && < 1,
-                        process                 >= 1.2      && < 2,
-                        filepath                >= 1.3      && < 2,
-                        adjunctions             >= 4.2.1    && < 5,
-                        temporary               >= 1.1      && < 2,
-                        optparse-applicative    >= 0.8      && < 1,
+                        adjunctions             >= 4.2.1 && < 5,
+                        aeson                   >= 0.7.0.6 && < 2,
+                        async,
                         average                 >= 0.6.1    && < 1,
-                        semigroups              >= 0.13.0.1 && < 1,
+                        base-orphans            >= 0.5 && < 1,
+                        bifunctors              >= 5 && < 6,
+                        bytestring              >= 0.10.4.0 && < 1,
+                        colour                  >= 2.3.3 && < 3.0,
+                        comonad                 >= 4.2.2 && < 6,
+                        containers,
+                        contravariant           >= 1.2 && < 2,
+                        distributive            >= 0.4.4 && < 5,
+                        filepath                >= 1.3      && < 2,
+                        HCodecs                 >= 0.5 && < 0.6,
                         hsini                   >= 0.4.1    && < 1,
+                        lens                    >= 4.11     && < 5,
+                        mtl                     >= 2.1.3.1 && < 3,
+                        nats,
+                        NumInstances,
+                        optparse-applicative    >= 0.8      && < 1,
+                        parsec                  >= 3.1.9 && < 4,
+                        prettify                >= 1.0 && < 2,
+                        process                 >= 1.2      && < 2,
+                        -- profunctors             >= 4.2.0.1 && < 5,
+                        semigroups              >= 0.13.0.1 && < 1,
+                        split                   >= 0.2.2    && < 1,
+                        temporary               >= 1.1      && < 2,
+                        transformers            >= 0.4.2.0 && < 0.6,
+                        transformers-compat     >= 0.4.0.4,
+                        vector-space            >= 0.10.2 && < 1,
+                        vector-space-points     >= 0.2 && < 1,
                         monadplus,
                         lilypond                == 1.9.2,
                         musicxml2               == 1.9.2,
-                        music-score             == 1.9.2,
                         music-pitch             == 1.9.2,
                         music-dynamics          == 1.9.2,
                         music-articulation      == 1.9.2,
-                        music-parts             == 1.9.2,
-                        async
+                        music-parts             == 1.9.2
     if !os(windows)
       build-depends:    unix
-    exposed-modules:    Music.Prelude
+
+    exposed-modules:    Data.PairMonad
+                        Data.AffineSpace.Point.Offsets
+                        Data.Functor.Couple
+                        Data.Functor.Context
+                        Data.Functor.Rep.Lens
+                        Data.Semigroup.Instances
+                        Control.Monad.Compose
+                        Music.Prelude
                         Music.Prelude.Standard
                         Music.Prelude.CmdLine
                         Music.Prelude.Instances
                         Music.Prelude.Inspectable
+                        Music.Time
+                        Music.Time.Types
+                        Music.Time.Transform
+                        Music.Time.Duration
+                        Music.Time.Position
+                        Music.Time.Split
+                        Music.Time.Reverse
+                        Music.Time.Juxtapose
+                        Music.Time.Rest
+                        Music.Time.Aligned
+                        Music.Time.Note
+                        Music.Time.Placed
+                        Music.Time.Event
+                        Music.Time.Track
+                        Music.Time.Voice
+                        Music.Time.Score
+                        Music.Time.Behavior
+                        Music.Time.Reactive
+                        Music.Time.Meta
+                        Music.Score
+                        Music.Score.Ties
+                        Music.Score.Part
+                        Music.Score.Phrases
+                        Music.Score.Meta
+                        Music.Score.Meta.Annotations
+                        Music.Score.Meta.Attribution
+                        Music.Score.Meta.Barline
+                        Music.Score.Meta.Clef
+                        Music.Score.Meta.Fermata
+                        Music.Score.Meta.Key
+                        Music.Score.Meta.RehearsalMark
+                        Music.Score.Meta.Tempo
+                        Music.Score.Meta.Time
+                        Music.Score.Meta.Title
+                        Music.Score.Meta.Extract
+                        Music.Score.Pitch
+                        Music.Score.Articulation
+                        Music.Score.Dynamics
+                        Music.Score.Slide
+                        Music.Score.Tremolo
+                        Music.Score.Text
+                        Music.Score.Harmonics
+                        Music.Score.Color
+                        Music.Score.Export.Abc
+                        Music.Score.Export.Backend
+                        Music.Score.Export.NoteList
+                        Music.Score.Export.Midi
+                        Music.Score.Export.SuperCollider
+                        Music.Score.Export.Lilypond
+                        Music.Score.Export.MusicXml
+                        Music.Score.Export.ArticulationNotation
+                        Music.Score.Export.DynamicNotation
+                        Music.Score.Export2.StandardNotation
+                        Music.Score.Import.Abc
+                        Music.Score.Import.Lilypond
+                        Music.Score.Import.Midi
+                        -- We expose these to allow GHCI development
+                        Music.Time.Internal.Convert
+                        Music.Time.Internal.Util
+                        Music.Time.Internal.Transform
+                        Music.Score.Internal.Data
+                        Music.Score.Internal.Quantize
+                        Music.Score.Internal.Instances
+                        Music.Score.Internal.Util
+                        Music.Score.Internal.Export
+
     other-modules:      Paths_music_suite
+                        -- Paths_music_score
+                        Music.Time.Internal.Preliminaries
     hs-source-dirs:     src
     default-language:   Haskell2010
+    default-extensions: ConstraintKinds,
+                        DeriveDataTypeable,
+                        DeriveFoldable,
+                        DeriveFunctor,
+                        DeriveTraversable,
+                        GeneralizedNewtypeDeriving,
+                        MultiParamTypeClasses,
+                        NoMonomorphismRestriction ,
+                        RankNTypes,
+                        StandaloneDeriving,
+                        TupleSections,
+                        TypeFamilies,
+                        TypeOperators,
+                        ViewPatterns,
+                        OverloadedStrings
 
 test-suite "music-suite-tests"
     build-depends:      base                    >= 4   && < 5,
@@ -69,12 +175,15 @@ test-suite "music-suite-tests"
                         QuickCheck,
                         semigroups,
                         comonad,
-                        music-suite, music-score, music-dynamics, music-parts, music-pitch, music-articulation
+                        music-suite,
+                        music-dynamics,
+                        music-parts,
+                        music-pitch,
+                        music-articulation
     type:               exitcode-stdio-1.0
     main-is:            Laws.hs
     hs-source-dirs:     test
     default-language:   Haskell2010
 
 
-    -- ghc-options:        -fno-warn-typed-holes
-    -- ghc-options:        -fno-warn-typed-holes
+    ghc-options:        -fno-warn-typed-holes
