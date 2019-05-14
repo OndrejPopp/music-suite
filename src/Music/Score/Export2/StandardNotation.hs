@@ -224,6 +224,8 @@ data SystemBar              = SystemBar {
           -- Tricky because of ambiguity. Use balanced pair
           -- or an alt-list in SystemStaff.
         } deriving (Eq,Ord,Show)
+instance Semigroup SystemBar where
+  (<>) = mappend
 instance Monoid SystemBar where
   mempty = SystemBar Nothing Nothing Nothing Nothing Nothing
   mappend x y
@@ -251,6 +253,8 @@ data StaffInfo              = StaffInfo {
   _scoreOrder::ScoreOrder
   }
   deriving (Eq,Ord,Show)
+instance Semigroup StaffInfo where
+  (<>) = mappend
 instance Monoid StaffInfo where
   mempty = StaffInfo mempty mempty mempty Music.Pitch.trebleClef mempty mempty mempty
   mappend x y
@@ -299,6 +303,8 @@ data Chord = Chord {
   _ties::Ties
   }
   deriving (Eq, Show)
+instance Semigroup Chord where
+  (<>) = mappend
 instance Monoid Chord where
   mempty = Chord [] Nothing Nothing Nothing Nothing Nothing mempty mempty mempty mempty mempty
   mappend x y
@@ -329,6 +335,9 @@ data MovementInfo = MovementInfo {
   }
   deriving (Eq, Show)
 
+instance Semigroup MovementInfo where
+  (<>) = mappend
+
 instance Monoid MovementInfo where
   mempty = MovementInfo mempty mempty mempty
   mappend x y
@@ -344,6 +353,8 @@ data Movement     = Movement {
 
 data WorkInfo     = WorkInfo { _title::Title, _annotations::Annotations, _attribution::Attribution}
   deriving (Eq, Show)
+instance Semigroup WorkInfo where
+  (<>) = mappend
 instance Monoid WorkInfo where
   mempty = WorkInfo mempty mempty mempty
   mappend x y

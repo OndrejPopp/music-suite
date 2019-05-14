@@ -56,10 +56,16 @@ data Slur = NoSlur | BeginSlur | EndSlur
 data Mark = NoMark | Staccato | MoltoStaccato | Marcato | Accent | Tenuto
   deriving (Eq, Ord, Show)
 
+instance Semigroup Slur where
+  (<>) = mappend
+
 instance Monoid Slur where
   mempty = NoSlur
   mappend NoSlur a = a
   mappend a _      = a
+
+instance Semigroup Mark where
+  (<>) = mappend
 
 instance Monoid Mark where
   mempty = NoMark
@@ -103,6 +109,8 @@ instance Tiable ArticulationNotation where
       splitMark Accent        = (Accent, mempty)
       splitMark Tenuto        = (Tenuto, mempty)
 
+instance Semigroup ArticulationNotation where
+  (<>) = mappend
 
 instance Monoid ArticulationNotation where
   mempty = ArticulationNotation ([], [])

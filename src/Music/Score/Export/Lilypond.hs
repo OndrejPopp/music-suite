@@ -569,6 +569,9 @@ data LilypondOptions
   | LyScoreFormat
   | LyLargeScoreFormat
 
+instance Semigroup LilypondOptions where
+  (<>) = mappend
+
 instance Monoid LilypondOptions where
   mempty  = LyInlineFormat
   mappend = const

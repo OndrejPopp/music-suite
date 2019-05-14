@@ -52,6 +52,9 @@ import Music.Time
 data CrescDim = NoCrescDim | BeginCresc | EndCresc | BeginDim | EndDim
   deriving (Eq, Ord, Show)
 
+instance Semigroup CrescDim where
+  (<>) = mappend
+   
 instance Monoid CrescDim where
   mempty = NoCrescDim
   mappend NoCrescDim a = a
@@ -77,6 +80,9 @@ instance Tiable DynamicNotation where
   toTied (DynamicNotation (beginEnd, marks))
     = (DynamicNotation (beginEnd, marks),
        DynamicNotation (mempty, Nothing))
+
+instance Semigroup DynamicNotation where
+  (<>) = mappend
 
 instance Monoid DynamicNotation where
   mempty = DynamicNotation ([], Nothing)

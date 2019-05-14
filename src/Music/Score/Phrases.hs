@@ -1,7 +1,8 @@
 
-{-# LANGUAGE ConstraintKinds           #-}
+{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE UndecidableInstances       #-}
 {-# LANGUAGE FunctionalDependencies     #-}
 
 -- | Provides phrase-wise traversal.

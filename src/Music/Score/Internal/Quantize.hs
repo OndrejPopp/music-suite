@@ -275,6 +275,9 @@ data RhythmContext = RhythmContext {
       tupleDepth :: Int
   }
 
+instance Semigroup RhythmContext where
+  (<>) = mappend
+
 instance Monoid RhythmContext where
   mempty = RhythmContext { timeMod = 1, timeSub = 0, tupleDepth = 0 }
   a `mappend` _ = a

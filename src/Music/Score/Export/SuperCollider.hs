@@ -105,6 +105,9 @@ type ScEvent = (Double, Double)
 data ScScore a = ScScore [[(Duration, Maybe a)]]
   deriving (Functor)
 
+instance Semigroup (ScScore a) where
+  (<>) = mappend
+
 instance Monoid (ScScore a) where
   mempty = ScScore mempty
   ScScore a `mappend` ScScore b = ScScore (a `mappend` b)
