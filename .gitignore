@@ -3,4 +3,6 @@ cabal.sandbox.config
 .cabal-sandbox
 *.ly
 *.pdf
+*.bak
 .DS_Store
+.stack-work
