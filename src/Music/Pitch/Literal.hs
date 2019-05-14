@@ -20,3 +20,4 @@ module Music.Pitch.Literal (
 
 import Music.Pitch.Literal.Pitch
 import Music.Pitch.Literal.Interval
+
