@@ -35,6 +35,7 @@ library
                         comonad                 >= 4.2.2 && < 6,
                         containers,
                         contravariant           >= 1.2 && < 2,
+                        data-default,
                         distributive            >= 0.4.4 && < 5,
                         filepath                >= 1.3      && < 2,
                         HCodecs                 >= 0.5 && < 0.6,
@@ -45,8 +46,8 @@ library
                         NumInstances,
                         optparse-applicative    >= 0.8      && < 1,
                         parsec                  >= 3.1.9 && < 4,
-                        prettify                >= 1.0 && < 2,
-                        process                 >= 1.2      && < 2,
+                        prettify,
+                        process                 >= 1.2 && < 2,
                         -- profunctors             >= 4.2.0.1 && < 5,
                         semigroups              >= 0.13.0.1 && < 1,
                         split                   >= 0.2.2    && < 1,
@@ -56,7 +57,6 @@ library
                         vector-space            >= 0.10.2 && < 1,
                         vector-space-points     >= 0.2 && < 1,
                         monadplus,
-                        lilypond                == 1.9.2,
                         musicxml2               == 1.9.2,
                         music-pitch             == 1.9.2,
                         music-dynamics          == 1.9.2,
@@ -65,74 +65,79 @@ library
     if !os(windows)
       build-depends:    unix
 
-    exposed-modules:    Data.PairMonad
+    exposed-modules:    Control.Monad.Compose
                         Data.AffineSpace.Point.Offsets
-                        Data.Functor.Couple
                         Data.Functor.Context
+                        Data.Functor.Couple
                         Data.Functor.Rep.Lens
+                        Data.Music.Lilypond
+                        Data.Music.Lilypond.Dynamics
+                        Data.Music.Lilypond.IO
+                        Data.Music.Lilypond.Pitch
+                        Data.Music.Lilypond.Value
+                        Data.PairMonad
                         Data.Semigroup.Instances
-                        Control.Monad.Compose
                         Music.Prelude
-                        Music.Prelude.Standard
                         Music.Prelude.CmdLine
-                        Music.Prelude.Instances
                         Music.Prelude.Inspectable
-                        Music.Time
-                        Music.Time.Types
-                        Music.Time.Transform
-                        Music.Time.Duration
-                        Music.Time.Position
-                        Music.Time.Split
-                        Music.Time.Reverse
-                        Music.Time.Juxtapose
-                        Music.Time.Rest
-                        Music.Time.Aligned
-                        Music.Time.Note
-                        Music.Time.Placed
-                        Music.Time.Event
-                        Music.Time.Track
-                        Music.Time.Voice
-                        Music.Time.Score
-                        Music.Time.Behavior
-                        Music.Time.Reactive
-                        Music.Time.Meta
+                        Music.Prelude.Instances
+                        Music.Prelude.Standard
                         Music.Score
-                        Music.Score.Ties
-                        Music.Score.Part
-                        Music.Score.Phrases
+                        Music.Score.Articulation
+                        Music.Score.Color
+                        Music.Score.Dynamics
+                        Music.Score.Export2.StandardNotation
+                        Music.Score.Export.Abc
+                        Music.Score.Export.ArticulationNotation
+                        Music.Score.Export.Backend
+                        Music.Score.Export.DynamicNotation
+                        Music.Score.Export.Lilypond
+                        Music.Score.Export.Midi
+                        Music.Score.Export.MusicXml
+                        Music.Score.Export.NoteList
+                        Music.Score.Export.SuperCollider
+                        Music.Score.Harmonics
+                        Music.Score.Import.Abc
+                        Music.Score.Import.Lilypond
+                        Music.Score.Import.Midi
                         Music.Score.Meta
                         Music.Score.Meta.Annotations
                         Music.Score.Meta.Attribution
                         Music.Score.Meta.Barline
                         Music.Score.Meta.Clef
+                        Music.Score.Meta.Extract
                         Music.Score.Meta.Fermata
                         Music.Score.Meta.Key
                         Music.Score.Meta.RehearsalMark
                         Music.Score.Meta.Tempo
                         Music.Score.Meta.Time
                         Music.Score.Meta.Title
-                        Music.Score.Meta.Extract
+                        Music.Score.Part
+                        Music.Score.Phrases
                         Music.Score.Pitch
-                        Music.Score.Articulation
-                        Music.Score.Dynamics
                         Music.Score.Slide
-                        Music.Score.Tremolo
                         Music.Score.Text
-                        Music.Score.Harmonics
-                        Music.Score.Color
-                        Music.Score.Export.Abc
-                        Music.Score.Export.Backend
-                        Music.Score.Export.NoteList
-                        Music.Score.Export.Midi
-                        Music.Score.Export.SuperCollider
-                        Music.Score.Export.Lilypond
-                        Music.Score.Export.MusicXml
-                        Music.Score.Export.ArticulationNotation
-                        Music.Score.Export.DynamicNotation
-                        Music.Score.Export2.StandardNotation
-                        Music.Score.Import.Abc
-                        Music.Score.Import.Lilypond
-                        Music.Score.Import.Midi
+                        Music.Score.Ties
+                        Music.Score.Tremolo
+                        Music.Time
+                        Music.Time.Aligned
+                        Music.Time.Behavior
+                        Music.Time.Duration
+                        Music.Time.Event
+                        Music.Time.Juxtapose
+                        Music.Time.Meta
+                        Music.Time.Note
+                        Music.Time.Placed
+                        Music.Time.Position
+                        Music.Time.Reactive
+                        Music.Time.Rest
+                        Music.Time.Reverse
+                        Music.Time.Score
+                        Music.Time.Split
+                        Music.Time.Track
+                        Music.Time.Transform
+                        Music.Time.Types
+                        Music.Time.Voice
                         -- We expose these to allow GHCI development
                         Music.Time.Internal.Convert
                         Music.Time.Internal.Util
@@ -144,7 +149,6 @@ library
                         Music.Score.Internal.Export
 
     other-modules:      Paths_music_suite
-                        -- Paths_music_score
                         Music.Time.Internal.Preliminaries
     hs-source-dirs:     src
     default-language:   Haskell2010
