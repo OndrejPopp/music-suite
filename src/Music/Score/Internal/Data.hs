@@ -7,7 +7,7 @@ module Music.Score.Internal.Data (getData) where
 #define GET_DATA_FILE Paths_music_suite.getDataFileName
 import qualified Paths_music_suite
 #else
-#define GET_DATA_FILE (return . ("../MusicSuite/"++))
+#define GET_DATA_FILE (return . ("../music-suite/"++))
 #endif
 
 import qualified System.IO.Unsafe
