@@ -60,7 +60,6 @@ library
                         musicxml2               == 1.9.2,
                         music-pitch             == 1.9.2,
                         music-dynamics          == 1.9.2,
-                        music-articulation      == 1.9.2,
                         music-parts             == 1.9.2
     if !os(windows)
       build-depends:    unix
@@ -77,6 +76,7 @@ library
                         Data.Music.Lilypond.Value
                         Data.PairMonad
                         Data.Semigroup.Instances
+                        Music.Articulation
                         Music.Prelude
                         Music.Prelude.CmdLine
                         Music.Prelude.Inspectable
