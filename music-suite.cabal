@@ -59,7 +59,6 @@ library
                         monadplus,
                         musicxml2               == 1.9.2,
                         music-pitch             == 1.9.2,
-                        music-dynamics          == 1.9.2,
                         music-parts             == 1.9.2
     if !os(windows)
       build-depends:    unix
@@ -77,6 +76,11 @@ library
                         Data.PairMonad
                         Data.Semigroup.Instances
                         Music.Articulation
+                        Music.Dynamics
+                        Music.Dynamics.Absolute
+                        Music.Dynamics.Common
+                        Music.Dynamics.Balance
+                        Music.Dynamics.Literal
                         Music.Prelude
                         Music.Prelude.CmdLine
                         Music.Prelude.Inspectable
@@ -179,11 +183,8 @@ test-suite "music-suite-tests"
                         QuickCheck,
                         semigroups,
                         comonad,
-                        music-suite,
-                        music-dynamics,
                         music-parts,
                         music-pitch,
-                        music-articulation
     type:               exitcode-stdio-1.0
     main-is:            Laws.hs
     hs-source-dirs:     test
