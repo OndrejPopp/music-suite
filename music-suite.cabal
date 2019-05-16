@@ -23,14 +23,15 @@ source-repository head
   location:         	git://github.com/music-suite/music-suite.git
 
 library
-    build-depends:      base                    >= 4        && < 5,
-                        adjunctions             >= 4.2.1 && < 5,
+    build-depends:      adjunctions             >= 4.2.1 && < 5,
                         aeson                   >= 0.7.0.6 && < 2,
                         async,
                         average                 >= 0.6.1    && < 1,
+                        base                    >= 4        && < 5,
                         base-orphans            >= 0.5 && < 1,
                         bifunctors              >= 5 && < 6,
                         bytestring              >= 0.10.4.0 && < 1,
+                        cassava                 >= 0.4.3.0  && < 1,
                         colour                  >= 2.3.3 && < 3.0,
                         comonad                 >= 4.2.2 && < 6,
                         containers,
@@ -49,12 +50,13 @@ library
                         prettify,
                         process                 >= 1.2 && < 2,
                         -- profunctors             >= 4.2.0.1 && < 5,
+                        roman-numerals          >= 0.5.1.4  && < 1,
                         semigroups              >= 0.13.0.1 && < 1,
                         split                   >= 0.2.2    && < 1,
                         temporary               >= 1.1      && < 2,
                         transformers            >= 0.4.2.0 && < 0.6,
                         transformers-compat     >= 0.4.0.4,
-                        vector-space            >= 0.10.2 && < 1,
+                        vector-space            >= 0.10.2   && < 1,
                         vector-space-points     >= 0.2 && < 1,
                         monadplus,
                         musicxml2               == 1.9.2,
@@ -75,12 +77,28 @@ library
                         Data.Music.Lilypond.Value
                         Data.PairMonad
                         Data.Semigroup.Instances
+                        Data.Semigroup.Option.Instances
                         Music.Articulation
                         Music.Dynamics
                         Music.Dynamics.Absolute
-                        Music.Dynamics.Common
                         Music.Dynamics.Balance
+                        Music.Dynamics.Common
                         Music.Dynamics.Literal
+                        Music.Parts
+                        Music.Parts.Division
+                        Music.Parts.Group
+                        Music.Parts.Instrument
+                        Music.Parts.Instrument.Brass
+                        Music.Parts.Instrument.Keyboard
+                        Music.Parts.Instrument.Percussion
+                        Music.Parts.Instrument.Strings
+                        Music.Parts.Instrument.Vocal
+                        Music.Parts.Instrument.Woodwind
+                        Music.Parts.Internal.Data
+                        Music.Parts.Part
+                        Music.Parts.Solo
+                        Music.Parts.Subpart
+                        Music.Parts.Voices
                         Music.Prelude
                         Music.Prelude.CmdLine
                         Music.Prelude.Inspectable

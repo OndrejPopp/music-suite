@@ -11,6 +11,9 @@ Abstract representation of musical articulation (staccato, legato etc).
 # Dynamics
 Abstract representation of musical dynamic levels.
 
+# Parts
+Abstract representation of musical parts and instruments.
+
 # Lilypond
 A terse Haskell representation of (a subset of) Lilypond 
 expressions and a pretty-printer for such expressions. They can be used to generate 
