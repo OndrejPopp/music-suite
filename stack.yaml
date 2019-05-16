@@ -34,12 +34,6 @@ resolver: lts-13.21
 #  - wai
 packages:
 - .
-- ../music-suite-all/music-parts
-- ../music-suite-all/music-dynamics
-- ../music-suite-all/music-articulation
-- ../music-suite-all/music-pitch
-- ../music-suite-all/musicxml2
-- ../music-suite-all/lilypond
 - ../music-suite-all/monadplus
 # Dependency packages to be pulled from upstream that are not in the resolver
 # using the same syntax as the packages field.

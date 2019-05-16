@@ -5,14 +5,14 @@ author:                 Hans Hoglund
 maintainer:             Hans Hoglund <music-suite-discuss@googlegroups.com>
 license:                BSD3
 license-file:           COPYING
-synopsis:               A set of libraries for composition, analysis and manipulation of music.
+synopsis:               A library for composition, analysis and manipulation of music.
 category:               Music
 tested-with:            GHC
 build-type:             Simple
 cabal-version:          >= 1.10
 
 description:
-    This library is part of the Music Suite, see <http://music-suite.github.io>.
+    Music Suite, see <http://music-suite.github.io>.
 
 extra-source-files:     README.md,
                         examples/*.hs,
@@ -52,6 +52,7 @@ library
                         prettify,
                         process                 >= 1.2 && < 2,
                         -- profunctors             >= 4.2.0.1 && < 5,
+                        reverse-apply,
                         roman-numerals          >= 0.5.1.4  && < 1,
                         semigroups              >= 0.13.0.1 && < 1,
                         split                   >= 0.2.2    && < 1,
@@ -59,12 +60,10 @@ library
                         transformers            >= 0.4.2.0 && < 0.6,
                         transformers-compat     >= 0.4.0.4,
                         type-unary              >= 0.2.16   && < 1.0,
-                        vector-space            >= 0.10.2   && < 1,
+                        vector-space,
                         vector-space-points     >= 0.2      && < 1,
-                        monadplus,
-                        musicxml2               == 1.9.2,
-                        music-pitch             == 1.9.2,
-                        music-parts             == 1.9.2
+                        xml,
+                        monadplus
     if !os(windows)
       build-depends:    unix
 
@@ -78,6 +77,14 @@ library
                         Data.Music.Lilypond.IO
                         Data.Music.Lilypond.Pitch
                         Data.Music.Lilypond.Value
+                        Data.Music.MusicXml
+                        Data.Music.MusicXml.Time
+                        Data.Music.MusicXml.Pitch
+                        Data.Music.MusicXml.Dynamics
+                        Data.Music.MusicXml.Read
+                        Data.Music.MusicXml.Score
+                        Data.Music.MusicXml.Write
+                        Data.Music.MusicXml.Simple
                         Data.PairMonad
                         Data.Semigroup.Instances
                         Data.Semigroup.Option.Instances
@@ -196,6 +203,7 @@ library
                         Music.Score.Internal.Export
 
     other-modules:      Paths_music_suite
+                        Data.Music.MusicXml.Write.Score
                         Music.Pitch.Tokawa
                         Music.Time.Internal.Preliminaries
     hs-source-dirs:     src
@@ -226,9 +234,7 @@ test-suite "music-suite-tests"
                         tasty-quickcheck,
                         QuickCheck,
                         semigroups,
-                        comonad,
-                        music-parts,
-                        music-pitch,
+                        comonad
     type:               exitcode-stdio-1.0
     main-is:            Laws.hs
     hs-source-dirs:     test

@@ -35,10 +35,10 @@ import           Music.Pitch.Ambitus
 import           Music.Pitch.Clef
 
 #ifndef GHCI
-#define GET_DATA_FILE Paths_music_parts.getDataFileName
-import qualified Paths_music_parts
+#define GET_DATA_FILE Paths_music_suite.getDataFileName
+import qualified Paths_music_suite
 #else
-#define GET_DATA_FILE (return . ("../music-parts/"++))
+#define GET_DATA_FILE (return . ("../music-suite/"++))
 #endif
 
 
