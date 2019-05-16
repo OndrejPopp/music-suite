@@ -37,6 +37,7 @@ library
                         containers,
                         contravariant           >= 1.2 && < 2,
                         data-default,
+                        data-interval           >= 1.0.0    && < 2,
                         distributive            >= 0.4.4 && < 5,
                         filepath                >= 1.3      && < 2,
                         HCodecs                 >= 0.5 && < 0.6,
@@ -47,6 +48,7 @@ library
                         NumInstances,
                         optparse-applicative    >= 0.8      && < 1,
                         parsec                  >= 3.1.9 && < 4,
+                        positive                >= 0.4      && < 1,
                         prettify,
                         process                 >= 1.2 && < 2,
                         -- profunctors             >= 4.2.0.1 && < 5,
@@ -56,8 +58,9 @@ library
                         temporary               >= 1.1      && < 2,
                         transformers            >= 0.4.2.0 && < 0.6,
                         transformers-compat     >= 0.4.0.4,
+                        type-unary              >= 0.2.16   && < 1.0,
                         vector-space            >= 0.10.2   && < 1,
-                        vector-space-points     >= 0.2 && < 1,
+                        vector-space-points     >= 0.2      && < 1,
                         monadplus,
                         musicxml2               == 1.9.2,
                         music-pitch             == 1.9.2,
@@ -99,6 +102,28 @@ library
                         Music.Parts.Solo
                         Music.Parts.Subpart
                         Music.Parts.Voices
+                        Music.Pitch
+                        Music.Pitch.Absolute
+                        Music.Pitch.Equal
+                        Music.Pitch.Common
+                        Music.Pitch.Common.Types
+                        Music.Pitch.Common.Quality
+                        Music.Pitch.Common.Number
+                        Music.Pitch.Common.Interval
+                        Music.Pitch.Common.Pitch
+                        Music.Pitch.Common.Semitones
+                        Music.Pitch.Common.Spell
+                        Music.Pitch.Common.Harmony
+                        Music.Pitch.Common.Names
+                        Music.Pitch.Ambitus
+                        Music.Pitch.Scale
+                        Music.Pitch.Clef
+                        Music.Pitch.Intonation
+                        Music.Pitch.Literal
+                        Music.Pitch.Literal.Pitch
+                        Music.Pitch.Literal.Interval
+                        Music.Pitch.Augmentable
+                        Music.Pitch.Alterable
                         Music.Prelude
                         Music.Prelude.CmdLine
                         Music.Prelude.Inspectable
@@ -171,6 +196,7 @@ library
                         Music.Score.Internal.Export
 
     other-modules:      Paths_music_suite
+                        Music.Pitch.Tokawa
                         Music.Time.Internal.Preliminaries
     hs-source-dirs:     src
     default-language:   Haskell2010
